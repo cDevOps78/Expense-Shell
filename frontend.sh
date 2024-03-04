@@ -1,3 +1,7 @@
+function printHead(){
+ echo "$1"   
+}
+
 dnf install nginx -y &>> /tmp/frontend.log
 
 echo $?
