@@ -1,18 +1,19 @@
-dnf install nginx -y
+dnf install nginx -y &>> /tmp/expense.log
 
-systemctl start nginx 
+systemctl start nginx  &>> /tmp/expense.log
+
 
 rm -rf /usr/share/nginx/html/* 
 
-curl -s -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip 
+curl --silent -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip 
 
-unzip -q -o /tmp/frontend.zip  -d  /usr/share/nginx/html/
+unzip -q -o /tmp/frontend.zip  -d  /usr/share/nginx/html/ 
 
 cp expense.conf /etc/nginx/default.d/expense.conf 
 
-systemctl restart nginx
+systemctl restart nginx  &>> /tmp/expense.log
 
 
-systemctl enable nginx 
+systemctl enable nginx  &>> /tmp/expense.log
 
-#
+
