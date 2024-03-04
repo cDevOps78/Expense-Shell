@@ -1,6 +1,6 @@
-dnf install nginx -y &>> /tmp/expense.log
+dnf install nginx -y &>> /tmp/frontend.log
 
-systemctl start nginx  &>> /tmp/expense.log
+systemctl start nginx  &>> /tmp/frontend.log
 
 
 rm -rf /usr/share/nginx/html/* 
@@ -11,9 +11,9 @@ unzip -q -o /tmp/frontend.zip  -d  /usr/share/nginx/html/
 
 cp expense.conf /etc/nginx/default.d/expense.conf 
 
-systemctl restart nginx  &>> /tmp/expense.log
+systemctl restart nginx  &>> /tmp/frontend.log
 
 
-systemctl enable nginx  &>> /tmp/expense.log
+systemctl enable nginx  &>> /tmp/frontend.log
 
 
