@@ -13,8 +13,10 @@ function colours () {
 
 
 function printHead () {
- echo -e "$G------$1--------$N"
+ echo -e "------$1--------"
 }
 
 colours
+
+
 
