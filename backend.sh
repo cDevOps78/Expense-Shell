@@ -1,5 +1,7 @@
 scriptPath=$(realpath "$PWD")
 
+source $scriptPath/common.sh
+
 printHead "disable nodejs"
 dnf module disable nodejs -y &>> /dev/null
 checkStatus "disable nodejs"
@@ -13,7 +15,7 @@ dnf install nodejs -y &>> /dev/null
 checkStatus "Install nodejs"
 
 printHead "Adding user"
-id expense
+id expense &>> /dev/null
 if [ $? -ne 0 ];then
 useradd expense 
 fi
