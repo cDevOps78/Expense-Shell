@@ -1,5 +1,11 @@
+function colours () {
+    R="\e[31m"
+    G="\e[32m"
+    N="\e[0m"
+}
+
 function printHead () {
- echo "------$1-----------"
+ echo -e "$G------$1-----------$N"
 }
 
 printHead "Installing Mysql" 
