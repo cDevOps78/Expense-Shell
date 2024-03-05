@@ -4,6 +4,7 @@ function colours () {
     N="\e[0m"
 }
 
+colours 
 function printHead () {
  echo -e "$G------$1-----------$N"
 }
