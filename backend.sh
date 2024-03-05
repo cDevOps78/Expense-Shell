@@ -1,4 +1,5 @@
 scriptPath=$(realpath "$PWD")
+component="backend"
 
 source $scriptPath/common.sh
 
