@@ -3,6 +3,7 @@
 function colours () {
     R="\e[31m"
     G="\e[32m"
+    B="\e[34m"
     N="\e[0m"
 }
 
@@ -13,7 +14,7 @@ logFileLocation="/tmp/$component.log"
 
 function printHead () {
  echo -e "------$1--------"
- echo -e "------$1--------" >> $logFileLocation
+ echo -e "$B------$1--------$N" >> $logFileLocation
 }
 
 function checkStatus() {

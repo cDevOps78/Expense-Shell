@@ -2,9 +2,9 @@ scriptPath=$(realpath "$PWD")
 component="backend"
 
 source $scriptPath/common.sh
-
+> $logFileLocation
 printHead "disable nodejs"
-dnf module disable nodejs -y &> $logFileLocation
+dnf module disable nodejs -y &>> $logFileLocation
 checkStatus "disable nodejs"
 
 printHead "enable nodejs"
