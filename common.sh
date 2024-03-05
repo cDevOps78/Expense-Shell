@@ -11,6 +11,7 @@ function colours () {
 colours
 
 logFileLocation="/tmp/$component.log"
+> $logFileLocation
 
 function printHead () {
  echo -e "------$1--------"

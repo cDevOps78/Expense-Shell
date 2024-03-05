@@ -1,4 +1,4 @@
-
+component="mysql"
 source $PWD/common.sh
 
 printHead "Installing Mysql" 
