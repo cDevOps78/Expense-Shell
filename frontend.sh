@@ -1,19 +1,25 @@
-function printHead(){
- echo "$1"   
+function colours () {
+    R="\e[31m"
+    G="\e[32m"
+    N="\e[0m"
 }
 
-# printHead "Installing nginx"
-echo "Installing nginx"
+colours 
+function printHead () {
+ echo -e "$G------$1-----------$N"
+}
+
+
 dnf install nginx -y &>> /tmp/frontend.log
 
 echo $?
-printHead "Starting nginx"
+
 systemctl start nginx  &>> /tmp/frontend.log
 echo $?
-printHead "Removing-content"
+
 rm -rf /usr/share/nginx/html/* 
 echo $?
-printHead "Dowlaod"
+
 curl --silent -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip 
 echo $?
 
