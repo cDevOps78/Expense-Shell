@@ -1,10 +1,20 @@
+
 function checkStatus() {
 
-[[ $? == '0' ]] && echo "$1 is successfull" || echo "$1 is failure"
+[[ $? == '0' ]] && echo "$G $1 is successfull $N" || echo "$R $1 is failure $N"
+
+}
+
+function colours () {
+    R="\e[31m"
+    G="\e[32m"
+    N="\e[0m"
 }
 
 
-date &> /dev/null
+function printHead () {
+ echo -e "$G------$1-----------$N"
+}
 
-checkStatus "Running date commad"
+colours
 

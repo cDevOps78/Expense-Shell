@@ -12,7 +12,7 @@ function printHead () {
 
 dnf install nginx -y &>> /tmp/frontend.log
 
-echo $?
+
 
 systemctl start nginx  &>> /tmp/frontend.log
 echo $?
