@@ -1,7 +1,7 @@
 
 function checkStatus() {
 
-[[ $? == '0' ]] && echo -e "$G $1 is successfull $N" || [[ echo -e  "$R $1 is failure $N" && exit 1 ]] 
+[ $? -ne '0' ] && echo -e "$R $1 is failure $N" && exit 1 ||  echo -e  "$G $1 is successfull $N" 
 
 }
 
