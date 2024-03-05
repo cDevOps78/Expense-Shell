@@ -14,8 +14,8 @@ systemctl start mysqld   &>> /dev/null
 checkStatus "Starting Mysq"
 
 
-#printHead "Setting Root Mysql password"
-# mysql_secure_installation --set-root-pass ExpenseApp@1 &>> /dev/null
-#checkStatus "Setting Root Mysql password"
+printHead "Setting Root Mysql password"
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>> /dev/null
+checkStatus "Setting Root Mysql password"
 
 printHead "Checking-status to exit"
