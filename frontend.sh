@@ -14,7 +14,7 @@ rm -rf /usr/share/nginx/html/* &>> $logFileLocation
 checkStatus "removing the old content"
 
 printHead "Downloading-content"
-curl  -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip  &>> $logFileLocation&>>
+curl  -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip  &>> $logFileLocation
 checkStatus "Downloading-content"
 
 printHead "Unzipping content"
