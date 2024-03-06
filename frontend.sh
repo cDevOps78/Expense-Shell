@@ -1,41 +1,37 @@
-function colours () {
-    R="\e[31m"
-    G="\e[32m"
-    B="\e[34m"
-    N="\e[0m"
-}
 
-colours 
-function printHead () {
- echo -e "$G------$1-----------$N"
-}
+scriptPath=$(realpath "$PWD")
+component="backend"
+source $scriptPath/common.sh
 
-
-dnf install nginx -y &>> /tmp/frontend.log
+printHead "Install nginx"
+dnf install nginx -y &>> $logFileLocation
+checkStatus "Install nginx"
 
 
 
-systemctl start nginx  &>> /tmp/frontend.log
-echo $?
+printHead "removing the old content"
+rm -rf /usr/share/nginx/html/* &>> $logFileLocation
+checkStatus "removing the old content"
 
-rm -rf /usr/share/nginx/html/* 
-echo $?
+printHead "Downloading-content"
+curl  -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip  &>> $logFileLocation&>>
+checkStatus "Downloading-content"
 
-curl --silent -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip 
-echo $?
+printHead "Unzipping content"
+unzip  -o /tmp/frontend.zip  -d  /usr/share/nginx/html/ &>>  $logFileLocation
+checkStatus "Unzipping content"
 
-unzip -q -o /tmp/frontend.zip  -d  /usr/share/nginx/html/ 
-echo $?
+printHead "copying .conf-file"
+cp $scriptPath/expense.conf /etc/nginx/default.d/expense.conf &>> $logFileLocation
+checkStatus "copying .conf-file"
 
-cp expense.conf /etc/nginx/default.d/expense.conf 
-echo $?
-
-systemctl restart nginx  &>> /tmp/frontend.log
-
-echo $?
+printHead "restarting nginx"
+systemctl restart nginx  &>> $logFileLocation
+checkStatus "restarting nginx"
 
 
-systemctl enable nginx  &>> /tmp/frontend.log
-echo $?
+printHead "enable nginx"
+systemctl enable nginx  &>> $logFileLocation
+checkStatus "enable nginx"
 
 
