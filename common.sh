@@ -25,3 +25,5 @@ function checkStatus() {
 
 }
 
+# Intellji is installed
+
