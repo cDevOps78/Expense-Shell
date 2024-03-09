@@ -1,5 +1,3 @@
-
-
 function colours () {
     R="\e[31m"
     G="\e[32m"
