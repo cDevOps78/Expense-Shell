@@ -39,7 +39,7 @@ output {
     elasticsearch {
         hosts => "https://172.31.66.169:9200"
         data_stream => "true"
-        user => "elasticsearch"
+        user => "elastic"
         ssl_verification_mode => "none"
         password => "${password}"
         index => "frontend-%{+yyyy.MM.dd}"
