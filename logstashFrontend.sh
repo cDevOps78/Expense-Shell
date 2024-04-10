@@ -2,7 +2,7 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 function statusCheck() {
-  [ $1 -ne 0 ] && echo -e "$2-${R}FAILED${N}" || echo "$2-${G}SUCCESS${N}"
+  [ $1 -ne 0 ] && echo -e "$2-${R}FAILED${N}" || echo -e "$2-${G}SUCCESS${N}"
 }
 
 echo '
