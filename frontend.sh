@@ -7,8 +7,6 @@ printHead "Install nginx"
 dnf install nginx -y &>> $logFileLocation
 checkStatus "Install nginx"
 
-
-
 printHead "removing the old content"
 rm -rf /usr/share/nginx/html/* &>> $logFileLocation
 checkStatus "removing the old content"
