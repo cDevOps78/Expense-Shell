@@ -1,5 +1,6 @@
 # password=$1
 
+install () {
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
@@ -33,6 +34,18 @@ statusCheck $? "Start filebeat service"
 systemctl enable filebeat &>> /tmp/logstash.log
 statusCheck $? "Enable filebeat service"
 
+}
+
+filebeat-file(){
+cp ./filebeat.yml /etc/filebeat/filebeat.yml
+}
+
+if [ $1 = "filebeat-file" ]; then
+  filebeat-file
+  systemctl restart filebeat
+else
+  install
+fi
 
 
 
