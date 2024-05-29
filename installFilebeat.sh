@@ -40,7 +40,7 @@ filebeat-file(){
 cp ./filebeat.yml /etc/filebeat/filebeat.yml
 }
 
-if [ $1 = "filebeat-file" ]; then
+if [ "$1" = "filebeat-file" ]; then
   filebeat-file
   systemctl restart filebeat
 else
