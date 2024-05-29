@@ -140,7 +140,7 @@ setup.kibana:
   #password: "changeme"
 
   # ------------------------------ Logstash Output -------------------------------
-  output.logstash:
+output.logstash:
    hosts: ["172.31.55.69:5044"]
 
   # Optional SSL. By default is off.
