@@ -1,6 +1,6 @@
 
 scriptPath=$(realpath "$PWD")
-component="backend"
+component="frontend"
 source $scriptPath/common.sh
 
 printHead "Install nginx"
