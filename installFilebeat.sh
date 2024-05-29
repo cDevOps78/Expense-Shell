@@ -39,7 +39,8 @@ statusCheck $? "Enable filebeat service"
 filebeat-file(){
 cp ./filebeat.yml /etc/filebeat/filebeat.yml
 }
- ]; then
+
+if [ "$1" = "filebeat-file" ]; then
   filebeat-file
   systemctl restart filebeat
 else
