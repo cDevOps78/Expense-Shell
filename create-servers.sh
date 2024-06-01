@@ -9,7 +9,7 @@ create_instance() {
     --instance-type t2.micro \
     --subnet-id ${subnet_id} \
     --security-group-ids ${security_group_id} \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}},{Key=Project,Value=RoboShop}]" \
     --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"
 }
 
