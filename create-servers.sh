@@ -1,7 +1,12 @@
+read -p "Enter component name:" project_component
 
-ami_id="ami-0e4fd655fb4e26c30"
-security_group_id="sg-098c66671a7255c8e"
-subnet_id="subnet-05bc9c749607ae9c2"
+if [ -z "${project_component}" ]; then
+  echo "Variable is missing: project_component" && exit 1
+fi
+
+ami_id="ami-0f3c7d07486cad139"
+security_group_id="sg-0a88820d7b4d3ff2a"
+subnet_id="subnet-0071e36c53f811c0b"
 
 
 zone_id=$(aws route53  list-hosted-zones-by-name --dns-name azcart.online --query "HostedZones[].Id" --output text | awk -F"/" '{print $3}' )
@@ -10,7 +15,7 @@ dns_name=$(aws route53  list-hosted-zones-by-name --dns-name azcart.online --que
 create_instance() {
   private_ip=$(aws ec2 run-instances \
     --image-id ${ami_id} \
-    --instance-type t2.micro \
+    --instance-type t3.micro \
     --subnet-id ${subnet_id} \
     --security-group-ids ${security_group_id} \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}},{Key=Project,Value=RoboShop}]" \
@@ -36,14 +41,15 @@ create_instance() {
         ]
     }
 EOF
+
+echo -e "\e[32m"
 aws route53 change-resource-record-sets --hosted-zone-id ${zone_id} --change-batch file:///tmp/route53_record.json
+echo -e "\e[0m"
 
 }
 
 
-for component in frontend
+for component in ${project_component}
 do
   create_instance
-
-
 done
