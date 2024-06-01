@@ -10,7 +10,7 @@ create_instance() {
     --subnet-id ${subnet_id} \
     --security-group-ids ${security_group_id} \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}},{Key=Project,Value=RoboShop}]" \
-    --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" --query ".Instances[].PrivateIpAddress" --output text)
+    --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}" --query "Instances[].PrivateIpAddress" --output text)
 }
 
 for component in frontend
