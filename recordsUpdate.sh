@@ -33,7 +33,6 @@ cat << EOF > last.json
         }
     ]
 }
-
 EOF
 
 aws route53 change-resource-record-sets --hosted-zone-id ${zone_id} --change-batch file://last.json
