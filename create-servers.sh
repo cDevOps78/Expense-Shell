@@ -1,4 +1,6 @@
-read -p "Enter component name:" project_component
+#read -p "Enter component name:" project_component
+
+project_component="${1}"
 
 if [ -z "${project_component}" ]; then
   echo "Variable is missing: project_component" && exit 1
