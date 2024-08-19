@@ -26,7 +26,7 @@ WantedBy=multi-user.target
 Alias=artifactory.service
 ' > /etc/systemd/system/artifactory.service
 
-systemctl deamon-reload
+systemctl daemon-reload
 
 systemctl start artifactory
 
