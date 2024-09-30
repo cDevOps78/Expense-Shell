@@ -33,3 +33,4 @@ systemctl enable nginx  &>> $logFileLocation
 checkStatus "enable nginx"
 
 
+# 
